@@ -118,3 +118,17 @@ class Version:
 
     def __le__(self, other: Version) -> bool:
         return self.__eq__(other) or self.__lt__(other)
+
+    def __add__(self, other: Version) -> Version:
+        return Version(
+            major=self.major + other.major,
+            minor=self.minor + other.minor,
+            build=self.build + other.build,
+            revision=self.revision + other.revision)
+
+    def __sub__(self, other: Version) -> Version:
+        return Version(
+            major=self.major - other.major,
+            minor=self.minor - other.minor,
+            build=self.build - other.build,
+            revision=self.revision - other.revision)
