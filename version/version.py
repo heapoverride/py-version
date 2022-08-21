@@ -1,5 +1,4 @@
 from __future__ import annotations
-import re
 
 class Version:
     def __init__(self, version: str = None, *, 
@@ -28,7 +27,7 @@ class Version:
         
         if type(version) == str:
             try:
-                values = [int(x) for x in re.split(r"[\.-]", version, maxsplit=4)]
+                values = [int(x) for x in version.split(".", version.split("-")[0], maxsplit=4)]
                 length = len(values)
 
                 if length > 0: 
@@ -45,6 +44,11 @@ class Version:
             except:
                 raise Exception(f"Invalid version: {repr(version)}")
 
+        if self.__major < 0: self.__major = 0
+        if self.__minor < 0: self.__minor = 0
+        if self.__build < 0: self.__build = 0
+        if self.__revision < 0: self.__revision = 0
+
     @property
     def major(self) -> int:
         """Major version number"""
@@ -52,6 +56,7 @@ class Version:
 
     @major.setter
     def major(self, value: int) -> int:
+        if value < 0: value = 0
         self.__major = int(value)
 
     @property
@@ -61,6 +66,7 @@ class Version:
         
     @minor.setter
     def minor(self, value: int) -> int:
+        if value < 0: value = 0
         self.__minor = int(value)
 
     @property
@@ -70,6 +76,7 @@ class Version:
         
     @build.setter
     def build(self, value: int) -> int:
+        if value < 0: value = 0
         self.__build = int(value)
 
     @property
@@ -79,6 +86,7 @@ class Version:
         
     @revision.setter
     def revision(self, value: int) -> int:
+        if value < 0: value = 0
         self.__revision = int(value)
 
     def __str__(self) -> str:
