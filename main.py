@@ -13,8 +13,8 @@ def main():
     print(a, "<=", b, "=", a <= b)
 
     print("BINARY OPERATIONS")
-    print(a + b)
-    print((a + b) - a)
+    print(a, "+", b, "=", a + b)
+    print(a, "-", b, "=", a - b)
 
 if __name__ == "__main__":
     main()
