@@ -21,10 +21,10 @@ class Version:
             Version("1.8")
             Version(major=1, minor=8)
         """
-        self.__major = major
-        self.__minor = minor
-        self.__build = build
-        self.__revision = revision
+        self.__major = int(major)
+        self.__minor = int(minor)
+        self.__build = int(build)
+        self.__revision = int(revision)
         
         if type(version) == str:
             try:
@@ -52,7 +52,7 @@ class Version:
 
     @major.setter
     def major(self, value: int) -> int:
-        self.__major = value
+        self.__major = int(value)
 
     @property
     def minor(self) -> int:
@@ -61,7 +61,7 @@ class Version:
         
     @minor.setter
     def minor(self, value: int) -> int:
-        self.__minor = value
+        self.__minor = int(value)
 
     @property
     def build(self) -> int:
@@ -70,7 +70,7 @@ class Version:
         
     @build.setter
     def build(self, value: int) -> int:
-        self.__build = value
+        self.__build = int(value)
 
     @property
     def revision(self) -> int:
@@ -79,7 +79,7 @@ class Version:
         
     @revision.setter
     def revision(self, value: int) -> int:
-        self.__revision = value
+        self.__revision = int(value)
 
     def __str__(self) -> str:
         if self.build + self.revision > 0:
