@@ -113,8 +113,8 @@ class Version:
             or self.build < other.build \
             or self.revision < other.revision
 
-    def __ge__(self, other: Version):
+    def __ge__(self, other: Version) -> bool:
         return self.__eq__(other) or self.__gt__(other)
 
-    def __le__(self, other: Version):
+    def __le__(self, other: Version) -> bool:
         return self.__eq__(other) or self.__lt__(other)
