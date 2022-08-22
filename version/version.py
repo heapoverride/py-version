@@ -27,7 +27,7 @@ class Version:
         
         if type(version) == str:
             try:
-                values = [int(x) for x in version.split("-")[0].split(".", maxsplit=4)]
+                values = [int(x) for x in version.split("-")[0].split(".", maxsplit=3)]
                 length = len(values)
 
                 if length > 0: 
