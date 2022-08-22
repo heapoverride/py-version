@@ -90,8 +90,11 @@ class Version:
         self.__revision = int(value)
 
     def __str__(self) -> str:
-        if self.build != 0 or self.revision != 0:
+        if self.revision != 0:
             return f"{self.major}.{self.minor}.{self.build}.{self.revision}"
+
+        if self.build != 0:
+            return f"{self.major}.{self.minor}.{self.build}"
             
         return f"{self.major}.{self.minor}"
 
