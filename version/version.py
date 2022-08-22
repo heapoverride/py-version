@@ -103,6 +103,7 @@ class Version:
 
     def __eq__(self, other: Version) -> bool:
         if type(other) != Version: return False
+        
         return self.major == other.major \
             and self.minor == other.minor \
             and self.build == other.build \
@@ -113,17 +114,49 @@ class Version:
 
     def __gt__(self, other: Version) -> bool:
         if type(other) != Version: return False
-        return self.major > other.major \
-            or self.minor > other.minor \
-            or self.build > other.build \
-            or self.revision > other.revision
+
+        if self.major > other.major:
+            return True
+        elif self.major < other.major:
+            return False
+
+        if self.minor > other.minor:
+            return True
+        elif self.minor < other.minor:
+            return False
+
+        if self.build > other.build:
+            return True
+        elif self.build < other.build:
+            return False
+
+        if self.revision > other.revision:
+            return True
+        elif self.revision < other.revision:
+            return False
 
     def __lt__(self, other: Version) -> bool:
         if type(other) != Version: return False
-        return self.major < other.major \
-            or self.minor < other.minor \
-            or self.build < other.build \
-            or self.revision < other.revision
+
+        if self.major < other.major:
+            return True
+        elif self.major > other.major:
+            return False
+
+        if self.minor < other.minor:
+            return True
+        elif self.minor > other.minor:
+            return False
+
+        if self.build < other.build:
+            return True
+        elif self.build > other.build:
+            return False
+
+        if self.revision < other.revision:
+            return True
+        elif self.revision > other.revision:
+            return False
 
     def __ge__(self, other: Version) -> bool:
         return self.__eq__(other) or self.__gt__(other)
