@@ -135,6 +135,8 @@ class Version:
         elif self.revision < other.revision:
             return False
 
+        return False
+
     def __lt__(self, other: Version) -> bool:
         if type(other) != Version: return False
 
@@ -157,6 +159,8 @@ class Version:
             return True
         elif self.revision > other.revision:
             return False
+
+        return False
 
     def __ge__(self, other: Version) -> bool:
         return self.__eq__(other) or self.__gt__(other)
