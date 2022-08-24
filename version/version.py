@@ -17,8 +17,8 @@ class Version:
             revision (int, optional): Revision number. Defaults to 0.
 
         Hint:
-            Version("1.8")
-            Version(major=1, minor=8)
+            - Version("1.8")
+            - Version(major=1, minor=8)
         """
         self.__major = int(major)
         self.__minor = int(minor)
